@@ -7,32 +7,30 @@ namespace Kiosk.App;
 
 
 class Ask {
-    string question = "";
-    List<string> options = new List<string>();
+    Question question;
     string answer = "";
 
     public void Run() {
         //here will collect questions and answers from survey class
-        question =  "Are you a human?";
-        options = new List<string>() {"yes","no"};
-        Console.WriteLine(question);
-        int i = 1;
-        foreach(string o in options){
-            Console.WriteLine(i + ". " + o);
-            i += 1;
-        }
-        Console.WriteLine("Your vote : ");
-        string input = Console.ReadLine();
-        answer  = options[int.Parse(input) - 1];
+        try{
+            Console.WriteLine(question.question);
+            int i = 1;
+            foreach(string o in question.options){
+                Console.WriteLine(i + ". " + o);
+                i += 1;
+            }
+            Console.WriteLine("Your vote : ");
+            string input = Console.ReadLine();
+            question.answer  = question.options[int.Parse(input) - 1];
+        }catch(Exception e){}
     }
 
-    public void setQuestion(string question, List<String> options){
+    public void setQuestion(Question question){
         this.question = question;
-        this.options = options;
     }
 
     public string getAnswer(){
-        return answer;
+        return question.answer;
     }
 
 }
