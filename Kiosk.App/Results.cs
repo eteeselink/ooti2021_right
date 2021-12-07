@@ -12,7 +12,8 @@ class Results {
 
     //yes/no question
     public static void show(string question, int numOfYes, int numOfNo){
-        string s = question + "\n";
+        string s = "\n\n=========RESULTS=========\n\n";
+        s += question + "\n";
         s += "yes: ";
         s += numOfYes.ToString() + "\n";
         s += "no: ";
@@ -23,7 +24,8 @@ class Results {
 
     //many options
     public static void showMany(string question, IDictionary<string, int> optionVotes){
-        string s = question + "\n";
+        string s = "\n\n=========RESULTS=========\n\n";
+        s += question + "\n";
 
         foreach (var option in optionVotes)
         {
