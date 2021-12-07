@@ -7,6 +7,9 @@ namespace Kiosk.App;
 
 class Survey {
     public void Run() {
-        Console.WriteLine("Survey");
+        Console.WriteLine("Survey: getting questionaire from read module");
+        Console.WriteLine("Survey: asking user 1");
+        Console.WriteLine("Survey: asking user 2");
+        Console.WriteLine("Survey: asking user 3");
     }
 }
