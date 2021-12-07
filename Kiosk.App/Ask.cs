@@ -13,8 +13,8 @@ class Ask {
 
     public void Run() {
         //here will collect questions and answers from survey class
-        question =  "What food do you want to choose?";
-        options = new List<string>() {"pizza", "lahmachun", "bitterballen"};
+        question =  "Are you a human?";
+        options = new List<string>() {"yes","no"};
         Console.WriteLine(question);
         int i = 1;
         foreach(string o in options){
@@ -26,9 +26,8 @@ class Ask {
         answer  = options[int.Parse(input) - 1];
     }
 
-    public void setQuestion(string question, List<string> options){
+    public void setQuestion(string question){
         this.question = question;
-        this.options = options;
     }
 
     public string getAnswer(){
