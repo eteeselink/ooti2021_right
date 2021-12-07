@@ -30,7 +30,7 @@ class Survey {
         ask.setQuestion(q);
 
 
-        for(int i = 0; i < 5; i++)
+        while(true)
         {
             ask.Run();
             answer = ask.getAnswer();
@@ -39,21 +39,23 @@ class Survey {
                 yesCounter = yesCounter + 1;
 
             }
-            else
+            else if(answer.Equals("No"))
             {
                noCounter++;
             }
 
             Console.WriteLine(answer);
 
-        }
-
-        // get results
+            // get results
         Results.show(q.question, yesCounter, noCounter);
 
         Report rep = new Report(q.question, yesCounter, noCounter);
 
         rep.Run();
+
+        }
+
+        
 
 
 
