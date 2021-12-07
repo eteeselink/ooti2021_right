@@ -9,7 +9,7 @@ public class Report
 {
     public void Run()
     {
-        Console.WriteLine("Report");
+        Console.WriteLine("Report is ready!");
         string htmlContent = CreateHtmlContent();
         WriteToFile(htmlContent);
     }
@@ -65,10 +65,6 @@ public class Report
 <li>
 <span>Dutch Food</span>
 <span>Are you kidding me?</span>
-</li>
-<li>
-<span></span>
-<span></span>
 </li>
         </ul>
         </div>
