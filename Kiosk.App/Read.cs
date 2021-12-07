@@ -6,6 +6,12 @@ using System.Linq;
 namespace Kiosk.App;
 
 class Read {
+
+    public Read()
+    {
+        
+    } 
+
     public void Run() {
         Console.WriteLine("Questions file contains:");
         Console.WriteLine(ReadQuestionsFile());
@@ -19,4 +25,12 @@ class Read {
         
         return File.ReadAllText(rootDir + "questions.txt");
     }
+
+      public Question ReadQuestionsFile() {
+          JObject obj = JObject.Parse(File.ReadAllText(rootDir + "questions.json"));
+          Question ques = JsonConvert.DeserializeObject<Question>();
+          return ques;
+    }
+
+
 }
