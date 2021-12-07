@@ -10,51 +10,38 @@ using Kiosk.App;
 // > dotnet run -- read
 
 // Create a root command with some options
-var rootCommand = new RootCommand
-{
-    Description = "OOTI Survey Kiosk",
-    Handler = CommandHandler.Create<bool>((sayHi) =>
-    {
-        if (sayHi)
-        {
-            Console.WriteLine("hi!");
-        }
-    })
-};
+var rootCommand =
+    new RootCommand { Description = "OOTI Survey Kiosk", Handler = CommandHandler.Create<bool>((sayHi) => {
+                         if (sayHi)
+                         {
+                             Console.WriteLine("hi!");
+                         }
+                     }) };
 
 // just a dummy option to show how options work
 rootCommand.AddOption(new Option<bool>("--say-hi", description: "Say hi"));
 
-var read = new Command("read", "Read the survey file and display diagnostic info")
-{
-    Handler = CommandHandler.Create(() => new Read().Run())
-};
+var read = new Command("read", "Read the survey file and display diagnostic info") { Handler = CommandHandler.Create(
+                                                                                         () => new Read().Run()) };
 
-var ask = new Command("ask", "Ask a single voter the questionnaire")
-{
-    Handler = CommandHandler.Create(() => new Ask().Run())
-};
+var ask = new Command(
+    "ask", "Ask a single voter the questionnaire") { Handler = CommandHandler.Create(() => new Ask().Run()) };
 
-var survey = new Command("survey", "Ask all voters the questionnaire")
-{
-    Handler = CommandHandler.Create(() => new Survey().Run())
-};
+var survey = new Command(
+    "survey", "Ask all voters the questionnaire") { Handler = CommandHandler.Create(() => new Survey().Run()) };
 
-var results = new Command("results", "Show results on the command line")
-{
-    Handler = CommandHandler.Create(() => new Results().Run())
-};
+var results = new Command(
+    "results", "Show results on the command line") { Handler = CommandHandler.Create(() => new Results().Run()) };
 
-var report = new Command("report", "Generate report of the results")
-{
-    Handler = CommandHandler.Create(() => new Report().Run())
+var report = new Command("report", "Generate report of the results") {
+    Handler = CommandHandler.Create(() => new Report("Do you like Pizza", 22, 31).Run())
 };
 
 // NOTE: if you want a subcommand to have options, do something like this:
 //
 // var report = new Command("report", "Generate report of the results")
 // {
-//     Handler = CommandHandler.Create<bool, string>((extraPretty, output) => 
+//     Handler = CommandHandler.Create<bool, string>((extraPretty, output) =>
 //         new Report(extraPretty, output).Run()
 //     )
 // };
@@ -69,7 +56,6 @@ rootCommand.AddCommand(ask);
 rootCommand.AddCommand(survey);
 rootCommand.AddCommand(results);
 rootCommand.AddCommand(report);
-
 
 // Parse the incoming args and invoke the handler
 return rootCommand.Invoke(args);
