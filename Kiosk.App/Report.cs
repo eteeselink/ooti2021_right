@@ -52,7 +52,7 @@ public class Report
             Console.WriteLine(Ex.ToString());
         }
     }
-        
+
 
     private string CreateHtmlSingleContent()
     {
@@ -63,9 +63,9 @@ public class Report
         " + this.question + @"
         </div>
         <div>        
-<span>Number of NO answers:" +
+<span>Number of YES answers:" +
                              this.yesCount + @"</span></div>
-<div><span>Number of YES answers:" +
+<div><span>Number of NO answers:" +
                              this.noCount + @"</span></div>
         </div>
         </body>
