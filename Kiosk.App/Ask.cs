@@ -26,8 +26,9 @@ class Ask {
         answer  = options[int.Parse(input) - 1];
     }
 
-    public void setQuestion(string question){
+    public void setQuestion(string question, List<String> options){
         this.question = question;
+        this.options = options;
     }
 
     public string getAnswer(){
