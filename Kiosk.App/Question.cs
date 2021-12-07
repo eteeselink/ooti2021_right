@@ -6,6 +6,7 @@ using System.Linq;
 namespace Kiosk.App;
 
 class Question {
-    public string questionTitle {get;set;}
+    public string question {get;set;}
     public List<string> options{get;set;}
+    public string answer {get;set;}
 }
