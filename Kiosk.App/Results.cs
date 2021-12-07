@@ -10,7 +10,7 @@ class Results {
         Console.WriteLine("dumb");
     }
 
-    public void show(string question, int numOfYes, int numOfNo){
+    public static void show(string question, int numOfYes, int numOfNo){
         string s = question + "\n";
         s += "yes: ";
         s += numOfYes.ToString() + "\n";
