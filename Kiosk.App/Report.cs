@@ -8,11 +8,10 @@ namespace Kiosk.App;
 public class Report
 {
 
-    private string question { get; set; }
+    private string question;
+    private int yesCount;
+    private int noCount;    
 
-    private int yesCount { get; set; }
-
-    private int noCount { get; set; }
 
     public Report(string question,int yesCount, int noCount)
     {
@@ -21,12 +20,14 @@ public class Report
         this.noCount = noCount;
     }
 
+
     public void Run()
     {       
-        string htmlContent =CreateHtmlSingleContent();
+        string htmlContent = CreateHtmlSingleContent();
         WriteToFile(htmlContent);
         Console.WriteLine("Report is ready!");
     }
+
 
     private void WriteToFile(String htmlText)
     {
