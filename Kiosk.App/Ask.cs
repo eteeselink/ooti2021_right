@@ -11,7 +11,7 @@ class Ask {
     string answer = "";
 
     public void Run() {
-        //here will collect questions and answers from survey class
+        //here will display the question and record the answer
         try{
             Console.WriteLine(question.question);
             int i = 1;
