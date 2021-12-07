@@ -7,7 +7,6 @@ namespace Kiosk.App;
 
 public class Report
 {
-
     private string question;
     private int yesCount;
     private int noCount;    
@@ -32,7 +31,6 @@ public class Report
     private void WriteToFile(String htmlText)
     {
         var rootDir = AppContext.BaseDirectory + "/../../../../";
-
         string fileName = rootDir + "report.html";
 
         try
@@ -54,6 +52,7 @@ public class Report
             Console.WriteLine(Ex.ToString());
         }
     }
+        
 
     private string CreateHtmlSingleContent()
     {
