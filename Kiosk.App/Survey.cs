@@ -9,7 +9,10 @@ class Survey {
 
     private String question = "dummy question?...";
     private List<string> options;
-    private int[] responseCount = {0,0};
+    private int[] responseCount = {};
+
+    private int yesCounter = 0;
+    private int noCounter = 0;
 
 
 
@@ -32,9 +35,26 @@ class Survey {
             ask.Run();
             answer = ask.getAnswer();
 
+            if(answer.Equals("Yes")){
+                yesCounter = yesCounter + 1;
+
+            }
+            else
+            {
+               noCounter++;
+            }
+
             Console.WriteLine(answer);
 
         }
+
+        // get results
+        Results.show(q.question, yesCounter, noCounter);
+
+        Report rep = new Report(q.question, yesCounter, noCounter);
+
+        rep.Run();
+
 
 
 
@@ -46,6 +66,8 @@ class Survey {
         //Console.WriteLine("Survey: asking user 2");
         //Console.WriteLine("Survey: asking user 3");
     }
+
+
 
 
 
