@@ -7,11 +7,25 @@ namespace Kiosk.App;
 
 public class Report
 {
+
+    private string question { get; set; }
+
+    private int yesCount { get; set; }
+
+    private int noCount { get; set; }
+
+    public Report(string question, int yesCount, int noCount)
+    {
+        this.question = question;
+        this.yesCount = yesCount;
+        this.noCount = noCount;
+    }
+
     public void Run()
     {
-        Console.WriteLine("Report is ready!");
-        string htmlContent = CreateHtmlContent();
+        string htmlContent = CreateHtmlSingleContent();
         WriteToFile(htmlContent);
+        Console.WriteLine("Report is ready!");
     }
 
     private void WriteToFile(String htmlText)
@@ -38,6 +52,25 @@ public class Report
         {
             Console.WriteLine(Ex.ToString());
         }
+    }
+
+    private string CreateHtmlSingleContent()
+    {
+        string htmlContent = @"<html>
+        <body>
+        <div>
+        <div>
+        " + this.question + @"
+        </div>
+        <div>        
+<span>Number of NO answers:" +
+                             this.yesCount + @"</span></div>
+<div><span>Number of YES answers:" +
+                             this.noCount + @"</span></div>
+        </div>
+        </body>
+        </html>";
+        return htmlContent;
     }
 
     private string CreateHtmlContent()
