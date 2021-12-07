@@ -14,7 +14,7 @@ public class Report
 
     private int noCount { get; set; }
 
-    public Report(string question,int yesCount, int noCount)
+    public Report(string question, int yesCount, int noCount)
     {
         this.question = question;
         this.yesCount = yesCount;
@@ -22,8 +22,8 @@ public class Report
     }
 
     public void Run()
-    {       
-        string htmlContent =CreateHtmlSingleContent();
+    {
+        string htmlContent = CreateHtmlSingleContent();
         WriteToFile(htmlContent);
         Console.WriteLine("Report is ready!");
     }
@@ -61,11 +61,12 @@ public class Report
         <div>
         <div>
         " + this.question + @"
+        </div>
         <div>        
 <span>Number of NO answers:" +
-                             this.yesCount + @"</span>
-<span>Number of YES answers:" +
-                             this.noCount + @"</span>
+                             this.yesCount + @"</span></div>
+<div><span>Number of YES answers:" +
+                             this.noCount + @"</span></div>
         </div>
         </body>
         </html>";
