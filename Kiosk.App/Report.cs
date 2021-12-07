@@ -7,12 +7,10 @@ namespace Kiosk.App;
 
 public class Report
 {
+    private string question;
+    private int yesCount;
+    private int noCount;    
 
-    private string question { get; set; }
-
-    private int yesCount { get; set; }
-
-    private int noCount { get; set; }
 
     public Report(string question, int yesCount, int noCount)
     {
@@ -21,6 +19,7 @@ public class Report
         this.noCount = noCount;
     }
 
+
     public void Run()
     {
         string htmlContent = CreateHtmlSingleContent();
@@ -28,10 +27,10 @@ public class Report
         Console.WriteLine("Report is ready!");
     }
 
+
     private void WriteToFile(String htmlText)
     {
         var rootDir = AppContext.BaseDirectory + "/../../../../";
-
         string fileName = rootDir + "report.html";
 
         try
@@ -53,6 +52,7 @@ public class Report
             Console.WriteLine(Ex.ToString());
         }
     }
+        
 
     private string CreateHtmlSingleContent()
     {

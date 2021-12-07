@@ -34,7 +34,7 @@ var results = new Command(
     "results", "Show results on the command line") { Handler = CommandHandler.Create(() => new Results().Run()) };
 
 var report = new Command("report", "Generate report of the results") {
-    Handler = CommandHandler.Create(() => new Report("Do you like Pizza", 22, 31).Run())
+    Handler = CommandHandler.Create(() => new Report("Do you like Pizza?", 22, 31).Run())
 };
 
 // NOTE: if you want a subcommand to have options, do something like this:
