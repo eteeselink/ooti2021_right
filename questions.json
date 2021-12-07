@@ -1,10 +1,8 @@
 {
-	"question": "What do you want to choose for lunch?",
+	"question": "Do you like Pizza?",
 	"options": [
-		"Pizza",
-		"Gheyme",
-		"Ghorme",
-		"oitterballen"
+		"Yes",
+		"No"
 	]
 }
    
