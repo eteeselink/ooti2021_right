@@ -7,23 +7,16 @@ namespace Kiosk.App;
 
 class Results {
     public void Run() {
-        string question = "What do you want to choose?";
-        IDictionary<string, int> choiceVotes = new Dictionary<string, int>();
+        Console.WriteLine("dumb");
+    }
 
-        choiceVotes.Add("pizza", 5);
-        choiceVotes.Add("lahmacun", 2);
-        choiceVotes.Add("bitterballen", 8);
+    public static void show(string question, int numOfYes, int numOfNo){
+        string s = question + "\n";
+        s += "yes: ";
+        s += numOfYes.ToString() + "\n";
+        s += "no: ";
+        s += numOfNo.ToString() + "\n";
 
-        string s = "Q: " + question + "\n";
-        foreach (var choice in choiceVotes)
-        {
-            s += choice.Key;
-            s += " - ";
-            s += choice.Value;
-            s += "\n";
-        }
-
-        
         Console.WriteLine(s);
     }
 }
