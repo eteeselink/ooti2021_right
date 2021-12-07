@@ -2,6 +2,8 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+
 
 namespace Kiosk.App;
 
@@ -14,7 +16,7 @@ class Read {
 
     public void Run() {
         Console.WriteLine("Questions file contains:");
-        Console.WriteLine(ReadQuestionsFile());
+        Console.WriteLine(GetQuestion().question);
     }
 
     // this is just an example of how to read a file,
@@ -26,11 +28,11 @@ class Read {
         return File.ReadAllText(rootDir + "questions.txt");
     }
 
-      public Question ReadQuestionsFile() {
-          JObject obj = JObject.Parse(File.ReadAllText(rootDir + "questions.json"));
-          Question ques = JsonConvert.DeserializeObject<Question>();
+      public Question GetQuestion() {
+          var rootDir = AppContext.BaseDirectory + "/../../../../";
+          string txt = File.ReadAllText(rootDir + "questions.json");
+          var ques = JsonSerializer.Deserialize<Question>(txt);
           return ques;
     }
-
 
 }
