@@ -12,15 +12,17 @@ class Ask {
 
     public void Run() {
         //here will collect questions and answers from survey class
-        Console.WriteLine(question.questionTitle);
-        int i = 1;
-        foreach(string o in question.options){
-            Console.WriteLine(i + ". " + o);
-            i += 1;
-        }
-        Console.WriteLine("Your vote : ");
-        string input = Console.ReadLine();
-        answer  = options[int.Parse(input) - 1];
+        try{
+            Console.WriteLine(question.question);
+            int i = 1;
+            foreach(string o in question.options){
+                Console.WriteLine(i + ". " + o);
+                i += 1;
+            }
+            Console.WriteLine("Your vote : ");
+            string input = Console.ReadLine();
+            question.answer  = question.options[int.Parse(input) - 1];
+        }catch(Exception e){}
     }
 
     public void setQuestion(Question question){
@@ -28,7 +30,7 @@ class Ask {
     }
 
     public string getAnswer(){
-        return answer;
+        return question.answer;
     }
 
 }
